@@ -1,0 +1,24 @@
+<% include partials/header %>
+    <h1>Hello <font color="#66cdaa"><%= name%></font>.  Glad to meet you!</h1>
+    <br>
+    <form method="POST" action="/contacts/add">
+        <label>First Name</label><br>
+        <input type="text" name="first_name">
+        <br>
+        <label>Last Name</label><br>
+        <input type="text" name="last_name">
+        <br>
+        <label>Alias</label><br>
+        <input type="text" name="alias">
+        <br><br>
+        <input type="submit" value="submit">
+    </form>
+    <br>
+    <br>
+    <h2>List of Contacts</h2>
+    <ul>
+        <% contacts.forEach(function (contact) { %>
+        <li><%= contact.first_name %> <%= contact.last_name%>, aka <%= contact.alias%> </li>
+        <%})%>
+    </ul>
+<% include partials/footer %>
